@@ -1,0 +1,10 @@
+POST http://localhost:3333/sessions HTTP/1.1
+content-type: application/json
+
+{
+	"email": "mulleresposito@hotmail.com",
+	"password": "123456"
+}
+###
+GET http://localhost:3333/appointments HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTEyNjM4NzgsImV4cCI6MTYxMTM1MDI3OCwic3ViIjoiMmQwZGE5MWEtYjg3MC00Y2RiLWIxNTUtNDQ4NWUxYTYyYThhIn0.7dPCZd8v9ynbmRNiDEBlqTbOC94hbhTh7UEQBVdIl9Q
