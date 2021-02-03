@@ -2,7 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import CreateUsersService from '../services/CreateUserService';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import ensureAuthenticated from '../../typeorm/middlewares/ensureAuthenticated';
 import uploadConfig from '../config/upload';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
