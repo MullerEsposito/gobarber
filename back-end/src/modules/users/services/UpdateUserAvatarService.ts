@@ -2,9 +2,9 @@ import { getRepository } from 'typeorm';
 import path from 'path';
 import fs from 'fs';
 
-import User from '../models/Users';
-import uploadConfig from '../config/upload';
-import AppError from '../errs/AppError';
+import User from '@modules/users/infra/typeorm/entities/Users';
+import uploadConfig from '@config/upload';
+import AppError from '@shared/errs/AppError';
 
 /* eslint-disable camelcase */
 interface Request {
