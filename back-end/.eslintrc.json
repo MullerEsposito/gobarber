@@ -25,6 +25,7 @@
     "rules": {
         "class-methods-use-this": "off",
         "@typescript-eslint/camelcase": "off",
+        "camelcase":"off",
         "@typescript-eslint/no-unused-vars": ["error", {
             "argsIgnorePattern": "_"
         }],
@@ -35,7 +36,10 @@
               "ts": "never"
             }
         ],
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "@typescript-eslint/interface-name-prefix": [
+            "error", { "prefixWithI" : "always"}
+        ]
     },
     "settings": {
         "import/resolver": {
