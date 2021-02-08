@@ -4,6 +4,7 @@ import fs from 'fs';
 import User from '@modules/users/infra/typeorm/entities/User';
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errs/AppError';
+import { inject, injectable } from 'tsyringe';
 import IUsersRespository from '../infra/repositories/IUsersRepository';
 
 interface IRequest {
@@ -11,8 +12,11 @@ interface IRequest {
     avatarFilename: string;
 }
 
+@injectable()
 class UpdateUserAvatarService {
-    constructor(private usersRepository: IUsersRespository) {}
+    constructor(
+        @inject('UsersRepository') private usersRepository: IUsersRespository,
+    ) {}
 
     public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
         const user = await this.usersRepository.findById(user_id);
