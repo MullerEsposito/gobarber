@@ -1,14 +1,21 @@
 import UsersRepositoryFake from '@modules/users/infra/repositories/fakes/UsersRepositoryFake';
 import AppError from '@shared/errs/AppError';
+import HashProviderFake from '../providers/hashProvider/fake/HashProviderFake';
 import AuthenticateUserService from './AuthenticateUserService';
 import CreateUserService from './CreateUserService';
 
 describe('AuthenticateUser', () => {
     it('should be able to authenticate', async () => {
         const fakeUsersRepository = new UsersRepositoryFake();
-        const createUser = new CreateUserService(fakeUsersRepository);
+        const fakeHashProvider = new HashProviderFake();
+
+        const createUser = new CreateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
+        );
         const authenticateUser = new AuthenticateUserService(
             fakeUsersRepository,
+            fakeHashProvider,
         );
 
         await createUser.execute({
@@ -27,9 +34,15 @@ describe('AuthenticateUser', () => {
 
     it('should not be able to authenticate with user incorrect', async () => {
         const fakeUsersRepository = new UsersRepositoryFake();
-        const createUser = new CreateUserService(fakeUsersRepository);
+        const fakeHashProvider = new HashProviderFake();
+
+        const createUser = new CreateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
+        );
         const authenticateUser = new AuthenticateUserService(
             fakeUsersRepository,
+            fakeHashProvider,
         );
 
         await createUser.execute({
@@ -48,9 +61,15 @@ describe('AuthenticateUser', () => {
 
     it('should not be able to authenticate with password incorrect', async () => {
         const fakeUsersRepository = new UsersRepositoryFake();
-        const createUser = new CreateUserService(fakeUsersRepository);
+        const fakeHashProvider = new HashProviderFake();
+
+        const createUser = new CreateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
+        );
         const authenticateUser = new AuthenticateUserService(
             fakeUsersRepository,
+            fakeHashProvider,
         );
 
         await createUser.execute({
